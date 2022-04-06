@@ -202,7 +202,5 @@ class VariablesTheme {
         int minutes = (num3 % 3600) /60;
 
         System.out.println("" + num3 + " секунд - это " + hours + ":" + minutes + ":" + seconds);
-
-
     }
 }
