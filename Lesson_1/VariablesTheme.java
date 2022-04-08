@@ -56,14 +56,8 @@ class VariablesTheme {
         short sh1 = 32_767;
         int i1 = 2_147_483_647;
         long lng = 9_223_372_036_854_775_807L;
-        char ch1 = 65_535;
-
-        
-        
-        
-        
-        
-
+        char ch1 = 65_535;     
+               
         System.out.println("b1 = " + b1);
         System.out.println("sh1 = " + sh1);
         System.out.println("i1 = " + i1);
