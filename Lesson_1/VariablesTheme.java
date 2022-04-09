@@ -28,7 +28,7 @@ class VariablesTheme {
         float coffePrice = 100f;
         float chocPrice = 200f;
         float discRate = 0.11f;
-        float discount = (coffePrice + chocPrice)* discRate;
+        float discount = (coffePrice + chocPrice) * discRate;
         float totalSum = coffePrice + chocPrice - discount;
 
         System.out.printf("\nСумма скидки = %.2f \n", discount);
@@ -98,17 +98,11 @@ class VariablesTheme {
         int caretCode = 94;
         int undlnCode = 95;
 
-        char hashChar = (char) hashCode;
-        char ampChar = (char) ampCode;
-        char atChar = (char) atCode;
-        char caretChar = (char) caretCode;
-        char undlnChar = (char) undlnCode;
-
-        System.out.println("\nКоду " + hashCode + " соответствует символ  " + hashChar);
-        System.out.println("Коду " + ampCode + " соответствует символ  " + ampChar);
-        System.out.println("Коду " + atCode + " соответствует символ  " + atChar);
-        System.out.println("Коду " + caretCode + " соответствует символ  " + caretChar);
-        System.out.println("Коду " + undlnCode + " соответствует символ  " + undlnChar);
+        System.out.println("\nКоду " + hashCode + " соответствует символ  " + (char) hashCode);
+        System.out.println("Коду " + ampCode + " соответствует символ  " + (char) ampCode);
+        System.out.println("Коду " + atCode + " соответствует символ  " + (char)atCode);
+        System.out.println("Коду " + caretCode + " соответствует символ  " + (char)caretCode);
+        System.out.println("Коду " + undlnCode + " соответствует символ  " + (char)undlnCode);
 
         //7. Произведение и сумма цифр числа
         System.out.println("\n7. Произведение и сумма цифр числа");
