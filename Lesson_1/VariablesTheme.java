@@ -100,9 +100,9 @@ class VariablesTheme {
 
         System.out.println("\nКоду " + hashCode + " соответствует символ  " + (char) hashCode);
         System.out.println("Коду " + ampCode + " соответствует символ  " + (char) ampCode);
-        System.out.println("Коду " + atCode + " соответствует символ  " + (char)atCode);
-        System.out.println("Коду " + caretCode + " соответствует символ  " + (char)caretCode);
-        System.out.println("Коду " + undlnCode + " соответствует символ  " + (char)undlnCode);
+        System.out.println("Коду " + atCode + " соответствует символ  " + (char) atCode);
+        System.out.println("Коду " + caretCode + " соответствует символ  " + (char) caretCode);
+        System.out.println("Коду " + undlnCode + " соответствует символ  " + (char) undlnCode);
 
         //7. Произведение и сумма цифр числа
         System.out.println("\n7. Произведение и сумма цифр числа");
