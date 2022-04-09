@@ -28,7 +28,7 @@ class VariablesTheme {
         float coffePrice = 100f;
         float chocPrice = 200f;
         float discRate = 0.11f;
-        float discount = (coffePrice + chocPrice)*discRate;
+        float discount = (coffePrice + chocPrice)* discRate;
         float totalSum = coffePrice + chocPrice - discount;
 
         System.out.printf("\nСумма скидки = %.2f \n", discount);
@@ -54,26 +54,26 @@ class VariablesTheme {
         int maxInt = 2_147_483_647;
         long maxLong = 9_223_372_036_854_775_807L;
         char maxChar = 65_535;     
-               
-        System.out.println("maxBite = " + maxBite++);
-        System.out.println("maxShort = " + maxShort++);
-        System.out.println("maxInt = " + maxInt++);
-        System.out.println("maxLong = " + maxLong++);
-        System.out.println("maxChar = " + maxChar++);
 
-        System.out.println("\nУвеличение значений переменных на единицу\n");
-        System.out.println("maxBite = " + maxBite--);
-        System.out.println("maxShort = " + maxShort--);
-        System.out.println("maxInt = " + maxInt--);
-        System.out.println("maxLong = " + maxLong--);
-        System.out.println("maxChar = " + maxChar--);
-
-        System.out.println("\nУменьшение значений переменных на единицу\n");
-        System.out.println("maxBite = " + maxBite);
+        System.out.println("\nmaxBite = " + maxBite);
         System.out.println("maxShort = " + maxShort);
         System.out.println("maxInt = " + maxInt);
         System.out.println("maxLong = " + maxLong);
         System.out.println("maxChar = " + maxChar);
+
+        System.out.println("\nУвеличение значений переменных на единицу\n");
+        System.out.println("maxBite = " + ++maxBite);
+        System.out.println("maxShort = " + ++maxShort);
+        System.out.println("maxInt = " + ++maxInt);
+        System.out.println("maxLong = " + ++maxLong);
+        System.out.println("maxChar = " + ++maxChar);
+
+        System.out.println("\nУменьшение значений переменных на единицу\n");
+        System.out.println("maxBite = " + --maxBite);
+        System.out.println("maxShort = " + --maxShort);
+        System.out.println("maxInt = " + --maxInt);
+        System.out.println("maxLong = " + --maxLong);
+        System.out.println("maxChar = " + --maxChar);
 
         //5. Перестановка значений переменных
         System.out.println("\n5. Перестановка значений переменных\n");
@@ -92,34 +92,34 @@ class VariablesTheme {
         //6. Вывод символов и их кодов
         System.out.println("\n6. Вывод символов и их кодов");
 
-        int hashInt = 35;
-        int ampInt = 38;
-        int atInt = 64;
-        int caretInt = 94;
-        int undlnInt = 95;
+        int hashCode = 35;
+        int ampCode = 38;
+        int atCode = 64;
+        int caretCode = 94;
+        int undlnCode = 95;
 
-        char hashChar = (char) hashInt;
-        char ampChar = (char) ampInt;
-        char atChar = (char) atInt;
-        char caretChar = (char) caretInt;
-        char undlnChar = (char) undlnInt;
+        char hashChar = (char) hashCode;
+        char ampChar = (char) ampCode;
+        char atChar = (char) atCode;
+        char caretChar = (char) caretCode;
+        char undlnChar = (char) undlnCode;
 
-        System.out.println("\nКоду " + hashInt + " соответствует символ  " + hashChar);
-        System.out.println("Коду " + ampInt + " соответствует символ  " + ampChar);
-        System.out.println("Коду " + atInt + " соответствует символ  " + atChar);
-        System.out.println("Коду " + caretInt + " соответствует символ  " + caretChar);
-        System.out.println("Коду " + undlnInt + " соответствует символ  " + undlnChar);
+        System.out.println("\nКоду " + hashCode + " соответствует символ  " + hashChar);
+        System.out.println("Коду " + ampCode + " соответствует символ  " + ampChar);
+        System.out.println("Коду " + atCode + " соответствует символ  " + atChar);
+        System.out.println("Коду " + caretCode + " соответствует символ  " + caretChar);
+        System.out.println("Коду " + undlnCode + " соответствует символ  " + undlnChar);
 
         //7. Произведение и сумма цифр числа
         System.out.println("\n7. Произведение и сумма цифр числа");
 
         int srcNum = 345;
-        int srcNumig = srcNum / 100;
+        int numBig = srcNum / 100;
         int numMiddle = (srcNum % 100) / 10; 
         int numKid = srcNum % 10;
 
-        int productDigits = numKid * numMiddle * srcNumig;
-        int sumDigits = numKid + numMiddle + srcNumig;
+        int productDigits = numKid * numMiddle * numBig;
+        int sumDigits = numKid + numMiddle + numBig;
 
         System.out.println("\nПроизведение цифр числа " + srcNum + " равно " + productDigits);
         System.out.println("Сумма цифр числа " + srcNum + " равна " + sumDigits);
