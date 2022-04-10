@@ -1,14 +1,10 @@
 class IfElseStatementTheme {
 
     public static void main(String[] args) {
-        
         //1. Перевод псевдокода на язык Java
         System.out.println("\n1. Перевод псевдокода на язык Java\n");
 
         int age = 25;
-        boolean male = true;
-        float height = 1.85F;
-        char[] name = { 'A' , 'l' , 'e' , 'x'};
 
         if (age > 20) {
             System.out.println("Возраст больше 20 лет");
@@ -16,9 +12,13 @@ class IfElseStatementTheme {
             System.out.println("Возраст - не старше 20 лет");
         }
 
+        boolean male = true;
+
         if (!male) {
             System.out.println("женщина");
         }
+
+        float height = 1.85F;
 
         if (height < 1.80) {
             System.out.println("рост меньше 1 м. 80 см.");
@@ -26,9 +26,11 @@ class IfElseStatementTheme {
             System.out.println("рост больше 1 м. 80 см.");
         }
 
-        if (name[0] == 'M') {
+        char firstNameLetter = "Alex".charAt(0);
+
+        if (firstNameLetter == 'M') {
             System.out.println("имя начинается на букву M");
-        } else if (name[0] == 'I') {
+        } else if (firstNameLetter == 'I') {
             System.out.println("имя начинается на букву I");
         } else {
             System.out.println("имя не начинается ни на букву М, ни на букву I");
@@ -37,24 +39,23 @@ class IfElseStatementTheme {
         //2. Поиск максимального и минимального числа
         System.out.println("\n2. Поиск максимального и минимального числа\n");
 
-        int int1 = 125;
-        int int2 = 1247;
+        int num1 = 125;
+        int num2 = 1247;
 
-        if ( int1 > int2) {
-            System.out.println("Из " + int1 + " и " + int2 + " максимальное " + int1 +
-                     ", минимальное "+ int2);
+        if (num1 > num2) {
+            System.out.println("Из " + num1 + " и " + num2 + " максимальное " + num1 +
+                     ", минимальное "+ num2);
         } else {
-            System.out.println("Из " + int1 + " и " + int2 + " максимальное " + int2 +
-                     ", минимальное "+ int1);
+            System.out.println("Из " + num1 + " и " + num2 + " максимальное " + num2 +
+                     ", минимальное "+ num1);
         }
 
         //3. Работа с числом
         System.out.println("\n3. Работа с числом\n");
 
         int srcNum = 135;
-        boolean isEvenNumber = srcNum % 2 == 0;
 
-        if (isEvenNumber == false) {
+        if (srcNum % 2 == 0) {
             System.out.println("Число " + srcNum + " чётное");
         } else {
             System.out.println("Число " + srcNum + " нечётное");
@@ -62,7 +63,7 @@ class IfElseStatementTheme {
 
         if (srcNum > 0) {
             System.out.println("Число " + srcNum + " положительное");
-        } else if (srcNum != 0) {
+        } else if (srcNum < 0) {
             System.out.println("Число " + srcNum + " отрицательное");
         } else {
             System.out.println("Число " + srcNum + " равно нулю");
@@ -71,51 +72,49 @@ class IfElseStatementTheme {
         //4. Поиск общей цифры в числах
         System.out.println("\n4. Поиск общей цифры в числах\n");
 
-        int firstNum = 895;
-        int firstNum1 = firstNum / 100;
-        int firstNum2 = (firstNum % 100) / 10;
-        int firstNum3 = (firstNum % 100) % 10;
+        int srcNum1 = 895;
+        int firstGigit1 = srcNum1 / 100;
+        int firstGigit2 = (srcNum1 % 100) / 10;
+        int firstGigit3 = (srcNum1 % 100) % 10;
 
-        int secondNum = 193;
-        int secondNum1 = secondNum / 100;
-        int secondNum2 = (secondNum % 100) / 10;
-        int secondNum3 = (secondNum % 100) % 10;
+        int srcNum2 = 193;
+        int secondDigit1 = srcNum2 / 100;
+        int secondDigit2 = (srcNum2 % 100) / 10;
+        int secondDigit3 = (srcNum2 % 100) % 10;
 
-        if (firstNum1 == secondNum1) {
-            System.out.print("В старшем разряде чисел " + firstNum);
-            System.out.println(" и " + secondNum + " цифра " + firstNum1 + " совпадает "); 
+        if (firstGigit1 == secondDigit1) {
+            System.out.print("В старшем разряде чисел " + srcNum1);
+            System.out.println(" и " + srcNum2 + " цифра " + firstGigit1 + " совпадает "); 
         }
 
-        if (firstNum2 == secondNum2) {
-            System.out.print("В среднем разряде чисел " + firstNum);
-            System.out.println(" и " + secondNum + " цифра " + firstNum2 + " совпадает "); 
+        if (firstGigit2 == secondDigit2) {
+            System.out.print("В среднем разряде чисел " + srcNum1);
+            System.out.println(" и " + srcNum2 + " цифра " + firstGigit2 + " совпадает "); 
         }
 
-        if (firstNum3 == secondNum3) {
-            System.out.print("В младшем разряде чисел " + firstNum);
-            System.out.println(" и " + secondNum + " цифра " + firstNum3 + " совпадает "); 
+        if (firstGigit3 == secondDigit3) {
+            System.out.print("В младшем разряде чисел " + srcNum1);
+            System.out.println(" и " + srcNum2 + " цифра " + firstGigit3 + " совпадает "); 
         }
 
-        if (firstNum1 != secondNum1 & firstNum2 != secondNum2 & firstNum3 != secondNum3) {
-            System.out.print("У чисел " + firstNum + " и " + secondNum + " нет совпадающих цифр" +
+        if (firstGigit1 != secondDigit1 && firstGigit2 != secondDigit2 && firstGigit3 != secondDigit3) {
+            System.out.print("У чисел " + srcNum1 + " и " + srcNum2 + " нет совпадающих цифр" +
                     " ни в одном разряде");
         }
 
         //5. Определение буквы, числа или символа по их коду
         System.out.println("\n5. Определение буквы, числа или символа по их коду\n");
-        System.out.println();
 
-        char ch = '\u005A';
-        int chint = ch;
+        char charCode = '\u005A';
 
-        if (chint > 64 & chint < 91) {
-            System.out.println("Символ " + ch + " является большой буквой");
-        } else if (chint > 96 & chint < 123) {
-            System.out.println("Символ " + ch + " является маленькой буквой");
-        } else if (chint > 47 & chint < 58) {
-            System.out.println("Символ " + ch + " является числом");
+        if (charCode > 64 && charCode < 91) {
+            System.out.println("Символ " + charCode + " является большой буквой");
+        } else if (charCode > 96 && charCode < 123) {
+            System.out.println("Символ " + charCode + " является маленькой буквой");
+        } else if (charCode > 47 && charCode < 58) {
+            System.out.println("Символ " + charCode + " является числом");
         } else {
-            System.out.println("Символ " + ch + " не является ни буквой, ни числом");
+            System.out.println("Символ " + charCode + " не является ни буквой, ни числом");
         }
 
         //6. Определение суммы вклада и начисленных банком процентов
@@ -127,7 +126,7 @@ class IfElseStatementTheme {
 
         if (investAmount < 100000) {
             interestRate = 0.05f;
-        } else if (investAmount >= 100000 & investAmount <= 300000) {
+        } else if (investAmount >= 100000 && investAmount <= 300000) {
             interestRate = 0.07f;
         } else {
             interestRate = 0.1f;
@@ -176,13 +175,12 @@ class IfElseStatementTheme {
         int monthRent = 5000;
         int monthIncome = 15000;
         int monthCost = 9000;
+        int annualProfit = (monthIncome - monthRent - monthCost)*12;
 
-        if (monthIncome - monthRent - monthCost >= 0) {
-            System.out.println("За год получена прибыль в размере +" +
-                    (monthIncome - monthRent - monthCost)*12 + "р");
+        if (annualProfit >= 0) {
+            System.out.println("За год получена прибыль в размере +" + annualProfit + "р");
         } else {
-            System.out.println("За год получен убыток в размере " +
-                    (monthIncome - monthRent - monthCost)*12 + "р");
+            System.out.println("За год получен убыток в размере " + annualProfit + "р");
         }
 
         //9. Определение существования треугольника
@@ -194,13 +192,13 @@ class IfElseStatementTheme {
         int hypot;
         int cathet1;
         int cathet2;
-        boolean isPlus = sideA > 0 & sideB > 0 & sideC > 0;;
+        boolean isPlus = sideA > 0 && sideB > 0 && sideC > 0;;
 
-        if (sideA >= sideB & sideA >= sideC) {
+        if (sideA >= sideB && sideA >= sideC) {
             hypot = sideA;
             cathet1 = sideB;
             cathet2 = sideC;
-        } else if (sideB >= sideA & sideB >= sideC ) {
+        } else if (sideB >= sideA && sideB >= sideC ) {
             hypot = sideB;
             cathet1 = sideA;
             cathet2 = sideC;
@@ -210,7 +208,7 @@ class IfElseStatementTheme {
             cathet2 = sideB;
         }
 
-        if (hypot * hypot == cathet1 * cathet1 + cathet2 * cathet2 & isPlus) {
+        if (hypot * hypot == cathet1 * cathet1 + cathet2 * cathet2 && isPlus) {
             System.out.println("\nТреугольник со сторонами " + sideA +" , " + sideB + " , " + 
                     sideC + " существует");
             System.out.printf("гипотенуза равна %d", hypot);
