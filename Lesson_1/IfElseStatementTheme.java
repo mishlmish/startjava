@@ -73,31 +73,31 @@ class IfElseStatementTheme {
         System.out.println("\n4. Поиск общей цифры в числах\n");
 
         int srcNum1 = 895;
-        int firstGigit1 = srcNum1 / 100;
-        int firstGigit2 = (srcNum1 % 100) / 10;
-        int firstGigit3 = (srcNum1 % 100) % 10;
+        int firstDigit1 = srcNum1 / 100;
+        int firstDigit2 = (srcNum1 % 100) / 10;
+        int firstDigit3 = (srcNum1 % 100) % 10;
 
         int srcNum2 = 193;
         int secondDigit1 = srcNum2 / 100;
         int secondDigit2 = (srcNum2 % 100) / 10;
         int secondDigit3 = (srcNum2 % 100) % 10;
 
-        if (firstGigit1 == secondDigit1) {
+        if (firstDigit1 == secondDigit1) {
             System.out.print("В старшем разряде чисел " + srcNum1);
-            System.out.println(" и " + srcNum2 + " цифра " + firstGigit1 + " совпадает "); 
+            System.out.println(" и " + srcNum2 + " цифра " + firstDigit1 + " совпадает "); 
         }
 
-        if (firstGigit2 == secondDigit2) {
+        if (firstDigit2 == secondDigit2) {
             System.out.print("В среднем разряде чисел " + srcNum1);
-            System.out.println(" и " + srcNum2 + " цифра " + firstGigit2 + " совпадает "); 
+            System.out.println(" и " + srcNum2 + " цифра " + firstDigit2 + " совпадает "); 
         }
 
-        if (firstGigit3 == secondDigit3) {
+        if (firstDigit3 == secondDigit3) {
             System.out.print("В младшем разряде чисел " + srcNum1);
-            System.out.println(" и " + srcNum2 + " цифра " + firstGigit3 + " совпадает "); 
+            System.out.println(" и " + srcNum2 + " цифра " + firstDigit3 + " совпадает "); 
         }
 
-        if (firstGigit1 != secondDigit1 && firstGigit2 != secondDigit2 && firstGigit3 != secondDigit3) {
+        if (firstDigit1 != secondDigit1 && firstDigit2 != secondDigit2 && firstDigit3 != secondDigit3) {
             System.out.print("У чисел " + srcNum1 + " и " + srcNum2 + " нет совпадающих цифр" +
                     " ни в одном разряде");
         }
@@ -175,7 +175,7 @@ class IfElseStatementTheme {
         int monthRent = 5000;
         int monthIncome = 15000;
         int monthCost = 9000;
-        int annualProfit = (monthIncome - monthRent - monthCost)*12;
+        int annualProfit = (monthIncome - monthRent - monthCost) * 12;
 
         if (annualProfit >= 0) {
             System.out.println("За год получена прибыль в размере +" + annualProfit + "р");
@@ -194,11 +194,11 @@ class IfElseStatementTheme {
         int cathet2;
         boolean isPlus = sideA > 0 && sideB > 0 && sideC > 0;;
 
-        if (sideA >= sideB && sideA >= sideC) {
+        if (sideA > sideB && sideA > sideC) {
             hypot = sideA;
             cathet1 = sideB;
             cathet2 = sideC;
-        } else if (sideB >= sideA && sideB >= sideC ) {
+        } else if (sideB > sideA && sideB > sideC ) {
             hypot = sideB;
             cathet1 = sideA;
             cathet2 = sideC;
@@ -217,15 +217,15 @@ class IfElseStatementTheme {
 
             System.out.print(" ");
 
-            for (int i = 0; i< cathet2; i++) {
+            for (int i = 0; i < cathet2; i++) {
                 System.out.print("_");
             }
 
             System.out.println();
 
-            for (int j = cathet1; j >= 0; j--) {
+            for (int j = cathet1; j > 0; j--) {
                 System.out.print("|");
-                for (int k = 0 ; k < j * cathet2 / cathet1 ; k++) {
+                for (int k = 1 ; k < j * cathet2 / cathet1 ; k++) {
                     System.out.print(" ");
             }
 
