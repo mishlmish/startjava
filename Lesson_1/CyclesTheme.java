@@ -33,13 +33,10 @@ class CyclesTheme {
         int minNum = num2;
 
         if (num1 >= num2 && num1 >= num3) {
-            maxNum = num1;
 
             if (num3 < num2) {
                 minNum = num3;
-            } else {
-                minNum = num2;
-            }
+            } 
         } else if (num2 >= num1 && num2 >= num3) {
             maxNum = num2;
 
@@ -53,8 +50,6 @@ class CyclesTheme {
 
             if (num3 < num2) {
                 minNum = num3;
-            } else {
-                minNum = num2;
             }
         }
 
@@ -68,16 +63,15 @@ class CyclesTheme {
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
 
         int srcNum = 1234;
-        int sum = srcNum % 10;
+        int sum = 0;
         int tempNum = srcNum; 
-        int inversNum = (srcNum % 10) * 1000 ;
-        int decMultiplier = 1000;
+        int inversNum = 0;
 
         while (tempNum > 0) {
-            tempNum = tempNum / 10;
-            sum = sum + tempNum % 10;
-            decMultiplier = decMultiplier / 10;
-            inversNum = inversNum + (tempNum % 10) * decMultiplier;
+            inversNum *= 10;
+            sum += tempNum % 10;
+            inversNum += tempNum % 10;
+            tempNum /= 10;
         }
 
         System.out.println("\nЧисло " + srcNum + " в обратном порядке будет числом: " + inversNum +
@@ -88,19 +82,24 @@ class CyclesTheme {
 
         fromNum = 1;
         toNum = 24;
-        int zeroNum = (5 - ((toNum - fromNum + 1) / 2) % 5) * 2;
+        counter = 0;
+        int zeroNum = 0;
 
-        for (int i = fromNum; i < toNum + zeroNum; i += 2) {
+        for (int i = fromNum; i < toNum + 8; i += 2) {
+            counter++;
             if (i < toNum) {
-                if ((i - fromNum) % 10 != 8){
-                    System.out.printf("%s%3d", "   ", i);
-                } else {
+                if (counter == 5) {
                     System.out.printf("%s%3d\n", "   ", i);
+                    counter = 0;
+                    zeroNum = 0;
+                } else {
+                    System.out.printf("%s%3d", "   ", i);
+                    zeroNum = 5 - counter;
                 }
             } else {
-                if (zeroNum != 10) {
-                System.out.printf("%s%3d", "   ", 0);
-                                }
+                if (zeroNum-- > 0) {
+                    System.out.printf("%s%3d", "   ", 0);
+                }
             }
         }
 
@@ -132,7 +131,7 @@ class CyclesTheme {
         //Квадрат
         int hight = 5;
 
-            while (hight > 0) {
+        while (hight > 0) {
             int width = 10;
 
             System.out.printf("\n%10s", " ");
@@ -181,26 +180,12 @@ class CyclesTheme {
         System.out.println("\n\n8. Проверка, является ли число палиндромом");
 
         srcNum = 12321;
-        tempNum = srcNum;
-        int digitNum = 0;
-
-        while (tempNum > 0) {
-            tempNum = tempNum / 10;
-            digitNum++;
-        }
-
-        decMultiplier = 1;
-
-       for (int i = 1; i < digitNum; i++) {
-            decMultiplier *=10;
-        }
-
-        tempNum = srcNum;
+        tempNum = srcNum; 
         inversNum = 0;
 
-        for (int j = 0; j < digitNum; j++) {
-            inversNum += (tempNum % 10) * decMultiplier;
-            decMultiplier /= 10;
+        while (tempNum > 0) {
+            inversNum *= 10;
+            inversNum += tempNum % 10;
             tempNum /= 10;
         }
 
@@ -213,7 +198,7 @@ class CyclesTheme {
         //9. Определение, является ли число счастливым
         System.out.println("\n9. Определение, является ли число счастливым\n");
 
-        srcNum = 356841;
+        srcNum = 356842;
         int leftDigits = srcNum / 1000;
         int rigthDigits = srcNum % 1000;
         int leftSum = 0;
