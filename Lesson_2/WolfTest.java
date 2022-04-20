@@ -10,7 +10,6 @@ class WolfTest {
     wolf1.age = 5;
     wolf1.color = "серый";
 
-
     System.out.println("Волка зовут :" + wolf1.name);
     System.out.println("Волк " + wolf1.sex);
     System.out.println("Волка весит " + wolf1.weight + " кг");
@@ -19,6 +18,5 @@ class WolfTest {
 
     System.out.println("\nВолк " + wolf1.howl() + " , " + wolf1.run() + " , " +
             wolf1.sit() + " , " + wolf1.walk() + " , " + wolf1.hunt());
-
     }
 }
