@@ -1,13 +1,14 @@
 class Person {
     boolean isMan = true;
     String name = "Mike";
-    float height = 1.80;
+    float height = 1.80f;
     int weight = 80;
     int age = 35;
 
     void walk() {
         System.out.println("walking");
     }
+
     void jump() {
         System.out.println("jumping");
     }
@@ -17,7 +18,7 @@ class Person {
     }
 
     String speak() {
-        return "speaking"
+        return "speaking";
     }
 
     boolean isStudyingJava() {
