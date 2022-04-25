@@ -1,30 +1,27 @@
 import java.util.Scanner;
 
 class GuessNumber {
-    private int compNum;
-    private int playerNum;
+    private Player compPlayer;
+    private Player player;
 
-    public void setPlayerNum(int playerNum) {
-        this.playerNum = playerNum;
-    }
-
-    public GuessNumber(int compNum) {
-        this.compNum = compNum;
+    public GuessNumber(Player compPlayer, Player player) {
+        this.compPlayer = compPlayer;
+        this.player = player;
     }
 
     public boolean playAndWin() {
-        
-        if(playerNum > compNum) {
-            System.out.println("\nДанное число " + playerNum +
+
+        if(player.getNumber() > compPlayer.getNumber()) {
+            System.out.println("\nДанное число " + player.getNumber() +
                     " больше, чем загадал компьютер\n");
 
             return true;
-        } else if(playerNum < compNum) {
-            System.out.println("\nДанное число " + playerNum +
+        } else if(player.getNumber() < compPlayer.getNumber()) {
+            System.out.println("\nДанное число " + player.getNumber() +
                     " меньше, чем загадал компьютер\n");
             return true;
         } else {
-            System.out.println("Угадано число: " + playerNum);
+            System.out.println("Угадано число: " + player.getNumber());
 
             return false;
         }

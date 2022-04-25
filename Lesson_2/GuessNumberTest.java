@@ -3,46 +3,39 @@ import java.util.Random;
 
 class GuessNumberTest {
     public static void main(String[] args) {
-    int tempNumber;
     int fromNum = 1;
     int toNum = 100;
     boolean playing = true;
     boolean playingMore = true;
-
     Random randomNum = new Random();
-
     Scanner scanner = new Scanner(System.in);
 
     do {
-
-        Player tempPlayer = new Player();
-
+        String tempPlayerName;
         int randomNumber = randomNum.nextInt(toNum - fromNum) + fromNum;
-
-        GuessNumber guessNumber = new GuessNumber(randomNumber);
+        Player compPlayer = new Player("Computer", randomNumber);
 
         System.out.println("\nВведите имя первого игрока");
-
-        Player player1 = new Player(scanner.nextLine());
+        String player1Name = scanner.nextLine();
 
         System.out.println("\nВведите имя второго игрока");
-
-        Player player2 = new Player(scanner.nextLine());
+        String player2Name = scanner.nextLine();
 
         int counter = 1;
 
         do {
             if(counter % 2 == 1) {
-                tempPlayer = player1;
+                tempPlayerName = player1Name;
             } else {
-                tempPlayer = player2;
+                tempPlayerName = player2Name;
             }
 
             counter++;
 
-            System.out.println("\nИгрок " + tempPlayer.getName() + " введите число: ");
-
-            guessNumber.setPlayerNum(scanner.nextInt());
+            System.out.println("\nИгрок " + tempPlayerName + " введите число: ");
+            
+            Player tempPlayer = new Player(tempPlayerName, scanner.nextInt());
+            GuessNumber guessNumber = new GuessNumber(compPlayer, tempPlayer);
 
             playing = guessNumber.playAndWin();
 
@@ -50,7 +43,7 @@ class GuessNumberTest {
                 System.out.println("\nПобедивший игрок: " + tempPlayer.getName());
             }
 
-            } while (playing);
+        } while (playing);
 
         boolean moreAsking = true;
 
@@ -68,7 +61,7 @@ class GuessNumberTest {
                 moreAsking = true;
             }
         } while(moreAsking);
-        scanner.nextLine();
+    scanner.nextLine();
     } while(playingMore);
     }
 }
