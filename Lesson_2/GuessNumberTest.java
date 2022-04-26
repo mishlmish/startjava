@@ -8,7 +8,7 @@ class GuessNumberTest {
     boolean playing = true;
     boolean playingMore = true;
     Random randomNum = new Random();
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in, "cp866");
 
     do {
         String tempPlayerName;
@@ -33,7 +33,7 @@ class GuessNumberTest {
             counter++;
 
             System.out.println("\nИгрок " + tempPlayerName + " введите число: ");
-            
+
             Player tempPlayer = new Player(tempPlayerName, scanner.nextInt());
             GuessNumber guessNumber = new GuessNumber(compPlayer, tempPlayer);
 
