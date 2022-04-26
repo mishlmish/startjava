@@ -1,27 +1,8 @@
 class JaegerTest {
 
     public static void main(String[] args) {
-        Jaeger ja1 = new Jaeger();
-
-        ja1.setModelName("Coyote Tango");
-        ja1.setMark("Mark-1");
-        ja1.setOrigin("Japan");
-        ja1.setHeight(85.34f);
-        ja1.setWeight(2.312f);
-        ja1.setSpeed(5);
-        ja1.setStrength(7);
-        ja1.setArmor(4);
-
-        Jaeger ja2 = new Jaeger();
-
-        ja2.setModelName("Crimson Typhoon");
-        ja2.setMark("Mark-4");
-        ja2.setOrigin("China");
-        ja2.setHeight(76.2f);
-        ja2.setWeight(1.722f);
-        ja2.setSpeed(9);
-        ja2.setStrength(8);
-        ja2.setArmor(6);
+        Jaeger ja1 = new Jaeger("Coyote Tango","Mark-1", "Japan", 85.34f, 2.312f, 5, 7, 4);
+        Jaeger ja2 = new Jaeger("Crimson Typhoon", "Mark-4", "China", 76.2f, 1.722f, 9, 8, 6);
 
         System.out.println("Первый робот");
 
