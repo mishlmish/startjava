@@ -14,22 +14,28 @@ class GuessNumber {
         this.player2 = player2;
     }
 
-    public void compareNumbers() {
+    public void launch() {
         int randomNumber = randomNum.nextInt(toNum - fromNum) + fromNum;
         int counter = 1;
         String playerName;
+        int tempNumber; 
 
         while (true) {
             if(counter % 2 == 1) {
                 playerName = player1.getName();
+
+                System.out.println("\nИгрок " + playerName + " введите число: ");
+                player1.setNumber(scanner.nextInt());
+                tempNumber = player1.getNumber();
+
             } else {
                 playerName = player2.getName();
+
+                System.out.println("\nИгрок " + playerName + " введите число: ");
+                player2.setNumber(scanner.nextInt());
+                tempNumber = player2.getNumber();
             }
-
             counter++;
-
-            System.out.println("\nИгрок " + playerName + " введите число: ");
-            int tempNumber = scanner.nextInt();
 
             if(tempNumber == randomNumber) {
                 System.out.println("\nПобедивший игрок: " + playerName);
