@@ -7,7 +7,7 @@ class GuessNumber {
     private Player player1;
     private Player player2;
     private Random randomNum = new Random();
-    private Scanner scanner = new Scanner(System.in, "cp866"); 
+    private Scanner console = new Scanner(System.in, "cp866"); 
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -15,38 +15,30 @@ class GuessNumber {
     }
 
     public void launch() {
-        int randomNumber = randomNum.nextInt(toNum - fromNum) + fromNum;
-        int counter = 1;
+        int randomNumber = randomNum.nextInt(toNum - fromNum + 1) + fromNum;
         String playerName;
-        int tempNumber; 
+        Player currentPlayer = player2;
 
         while (true) {
-            if(counter % 2 == 1) {
-                playerName = player1.getName();
-
-                System.out.println("\nИгрок " + playerName + " введите число: ");
-                player1.setNumber(scanner.nextInt());
-                tempNumber = player1.getNumber();
-
+            if(currentPlayer == player1) {
+                currentPlayer = player2;
             } else {
-                playerName = player2.getName();
-
-                System.out.println("\nИгрок " + playerName + " введите число: ");
-                player2.setNumber(scanner.nextInt());
-                tempNumber = player2.getNumber();
+                currentPlayer = player1;
             }
-            counter++;
 
-            if(tempNumber == randomNumber) {
-                System.out.println("\nПобедивший игрок: " + playerName);
-                System.out.println("Угадано число: " + tempNumber);
+            System.out.println("\nИгрок " + currentPlayer.getName() + " введите число: ");
+            currentPlayer.setNumber(console.nextInt());
+
+            if(currentPlayer.getNumber() == randomNumber) {
+                System.out.println("\nПобедивший игрок: " + currentPlayer.getName());
+                System.out.println("Угадано число: " + currentPlayer.getNumber());
                 break;
             }
-            if(tempNumber > randomNumber) {
-                System.out.println("\nДанное число " + tempNumber +
+            if(currentPlayer.getNumber() > randomNumber) {
+                System.out.println("\nДанное число " + currentPlayer.getNumber() +
                         " больше, чем загадал компьютер\n");
             } else {
-                System.out.println("\nДанное число " + tempNumber +
+                System.out.println("\nДанное число " + currentPlayer.getNumber() +
                         " меньше, чем загадал компьютер\n");
             }
         }

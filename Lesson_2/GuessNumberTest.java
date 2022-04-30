@@ -2,24 +2,24 @@ import java.util.Scanner;
 
 class GuessNumberTest {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, "cp866");
-        String answer = "not null";
+        Scanner console = new Scanner(System.in, "cp866");
+        String answer;
 
-        while(!answer.equals("no")) {
+        do {
             System.out.println("\nВведите имя первого игрока");
-            Player player1 = new Player(scanner.nextLine());
+            Player player1 = new Player(console.nextLine());
 
             System.out.println("\nВведите имя второго игрока");
-            Player player2 = new Player(scanner.nextLine());
+            Player player2 = new Player(console.nextLine());
 
             GuessNumber game = new GuessNumber(player1, player2);
             game.launch();
 
             do {
                 System.out.println("\nХотите играть ещё? [yes/no] : ");
-                answer = scanner.next();
+                answer = console.next();
             } while(!answer.equals("yes") && !answer.equals("no"));
-            scanner.nextLine();
-        } 
+            console.nextLine();
+        } while(!answer.equals("no"));
     }
 }
