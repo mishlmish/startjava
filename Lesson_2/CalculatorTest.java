@@ -1,20 +1,18 @@
 import java.util.Scanner;
 
-class  CalculatorTest {
+class CalculatorTest {
     
     public static void main(String[] args) {
         String answer;
-
         Calculator calc = new Calculator();
-
-        Scanner console = new Scanner(System.in);
+        Scanner console = new Scanner(System.in, "cp866");
 
         do {
             System.out.print("\nВведите первое число: ");
             calc.setNum1(console.nextInt());
 
             System.out.print("\nВведите знак математической операции: ");
-            calc.setSign(console.next().charAt(0));
+            calc.setSign(console.next());
 
             System.out.print("\nВведите второе число: ");
             calc.setNum2(console.nextInt());

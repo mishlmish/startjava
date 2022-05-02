@@ -1,4 +1,4 @@
-class  Calculator {
+class Calculator {
 
     private int num1;
     private int num2;
@@ -6,19 +6,18 @@ class  Calculator {
     private float result;
 
     public void setNum1(int num1) {
-            this.num1 = num1;
+        this.num1 = num1;
     }
 
     public void setNum2(int num2) {
         this.num2 = num2;
     }
 
-    public void setSign(char sign) {
-        this.sign = sign;
+    public void setSign(String sign) {
+        this.sign = sign.charAt(0);
     }
 
     public void calculate() {
-        boolean Calculated = true;
 
         switch (sign) {
             case '+' :

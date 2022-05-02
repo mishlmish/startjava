@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 class GuessNumber {
-    private int fromNum = 1;
+    private int fromNum = 0;
     private int toNum = 100;
     private Player player1;
     private Player player2;
@@ -15,16 +15,11 @@ class GuessNumber {
     }
 
     public void launch() {
-        int randomNumber = randomNum.nextInt(toNum - fromNum + 1) + fromNum;
-        String playerName;
+        int randomNumber = randomNum.nextInt(toNum - fromNum) + fromNum;
         Player currentPlayer = player2;
 
         while (true) {
-            if(currentPlayer == player1) {
-                currentPlayer = player2;
-            } else {
-                currentPlayer = player1;
-            }
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
 
             System.out.println("\nИгрок " + currentPlayer.getName() + " введите число: ");
             currentPlayer.setNumber(console.nextInt());
