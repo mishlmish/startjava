@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.Random;
 
 class GuessNumber {
-    private int fromNum = 0;
     private int toNum = 100;
     private Player player1;
     private Player player2;
@@ -15,7 +14,7 @@ class GuessNumber {
     }
 
     public void launch() {
-        int randomNumber = randomNum.nextInt(toNum - fromNum) + fromNum;
+        int randomNumber = randomNum.nextInt(toNum) + 1;
         Player currentPlayer = player2;
 
         while (true) {

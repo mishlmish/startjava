@@ -3,7 +3,6 @@ class Calculator {
     private int num1;
     private int num2;
     private char sign;
-    private float result;
 
     public void setNum1(int num1) {
         this.num1 = num1;
@@ -18,6 +17,7 @@ class Calculator {
     }
 
     public void calculate() {
+        float result;
 
         switch (sign) {
             case '+' :
