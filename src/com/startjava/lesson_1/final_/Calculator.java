@@ -1,4 +1,7 @@
-class  Calculator {
+package com.startjava.lesson_1.final_;
+
+class Calculator {
+
     public static void main(String[] args) {
         //1. Калькулятор
         System.out.println("\n1. Калькулятор\n");

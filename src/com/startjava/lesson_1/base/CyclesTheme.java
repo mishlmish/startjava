@@ -1,4 +1,7 @@
+package com.startjava.lesson_1.base;
+
 class CyclesTheme {
+    
     public static void main(String[] args) {
         //1. Подсчет суммы четных и нечетных чисел
         System.out.println("\n1. Подсчет суммы четных и нечетных чисел");
@@ -232,7 +235,7 @@ class CyclesTheme {
         System.out.println("   |   2   3   4   5   6   7   8   9");
         
         for (int i = 1; i < 37; i++) {
-            System.out.printf("%c", 22);
+            System.out.printf("%c", '_');
         }
 
         System.out.println();

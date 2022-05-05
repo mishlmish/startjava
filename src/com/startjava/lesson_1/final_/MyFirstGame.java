@@ -1,4 +1,7 @@
+package com.startjava.lesson_1.final_;
+
 class MyFirstGame {
+    
     public static void main(String[] args) {
         //2. Игра "Угадай число"
         System.out.println("\n2. Игра \"Угадай число\"\n");
