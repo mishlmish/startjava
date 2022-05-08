@@ -9,14 +9,12 @@ class CalculatorTest {
         Scanner console = new Scanner(System.in);
 
         do {
-            System.out.print("\nВведите выражение в формате число пробел знак пробел число: ");
+            System.out.print("\nВведите выражение в формате число  пробел знак пробел число: ");
             String inputExpression = console.nextLine();
-            String[] splitedData = inputExpression.split(" ");
 
-            Calculator calc = new Calculator(Integer.parseInt(splitedData[0]), splitedData[1],
-                    Integer.parseInt(splitedData[2]));
+            Calculator calc = new Calculator(inputExpression);
 
-            System.out.println(calc.getNum1() +  " " + calc.getSign() + " " + calc.getNum2() + " = " + calc.calculate());
+            System.out.println(inputExpression + " = " + calc.calculate());
 
             do {
                 System.out.println("\nПродолжить вычисления? [yes/no] : ");

@@ -2,26 +2,18 @@ package com.startjava.lesson_2_3_4.calculator;
 
 class Calculator {
 
-    private int num1;
-    private int num2;
-    private char sign;
+    private String inputExpression;
 
-    public Calculator(int num1, String sign, int num2 ) {
-        this.num1 = num1;
-        this.sign = sign.charAt(0);
-        this.num2 = num2;
-    }
-    public int getNum1() {
-        return num1;
-    }
-    public int getNum2() {
-        return num2;
-    }
-    public char getSign() {
-        return sign;
+    public Calculator(String inputExpression) {
+        this.inputExpression = inputExpression;
     }
 
     public float calculate() {
+        String[] splitedData = inputExpression.split(" ");
+        int num1 = Integer.parseInt(splitedData[0]);
+        char sign = splitedData[1].charAt(0);
+        int num2 = Integer.parseInt(splitedData[2]);
+
         switch (sign) {
             case '+' :
                 return Math.addExact(num1, num2);
@@ -37,7 +29,7 @@ class Calculator {
                 return (float) Math.pow((double) num1, (double) num2);
             default :
                 System.out.println("\nВведите правильный знак математической операции");
-                return (float) Math.sqrt(-1);
+                return 0;
         }
     }
 }
