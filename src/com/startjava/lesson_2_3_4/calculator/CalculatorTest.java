@@ -11,14 +11,14 @@ class CalculatorTest {
         String inputExpression;
 
         do {
-            System.out.print("\nВведите выражение в формате: [положительное целое число]  пробел [знак] пробел ");
-            System.out.println("[положительное целое число]");
+            System.out.println("\nВведите выражение в формате: [положительное целое число]  пробел [знак] пробел " +
+                    "[положительное целое число]");
             inputExpression = console.nextLine();
 
             try {
                 System.out.println(inputExpression + " = " + Calculator.calculate(inputExpression));
-            } catch(IllegalArgumentException exception) {
-                System.out.println(exception.getMessage());
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
 
             do {
