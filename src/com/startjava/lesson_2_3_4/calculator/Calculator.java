@@ -7,7 +7,6 @@ class Calculator {
     public static float calculate(String inputExpression) {
         String[] splitedData = inputExpression.split(" ");
         boolean numeric = true;
-        computed = true;
 
         if (splitedData.length == 3 && splitedData[1].length() == 1) {
             for (int i = 0; i < 3; i = i + 2) {
@@ -16,8 +15,7 @@ class Calculator {
                 }
             }
 
-            if (numeric && Integer.parseInt(splitedData[0]) * Integer.parseInt(splitedData[2]) != 0) {
-
+            if (numeric && Integer.parseInt(splitedData[0]) > 0 && Integer.parseInt(splitedData[2]) > 0) {
                 int num1 = Integer.parseInt(splitedData[0]);
                 char sign = splitedData[1].charAt(0);
                 int num2 = Integer.parseInt(splitedData[2]);
@@ -35,12 +33,10 @@ class Calculator {
                     }
                 };
             } else {
-                computed = false;
-                return 0;
+                throw new IllegalArgumentException("Вы ввели некорректные данные");
             }
         } else {
-            computed = false;
-            return 0;
+            throw new IllegalArgumentException("Вы ввели некорректные данные");
         }
     }
 }

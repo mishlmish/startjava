@@ -15,10 +15,10 @@ class CalculatorTest {
             System.out.println("[положительное целое число]");
             inputExpression = console.nextLine();
 
-            if ((Calculator.calculate(inputExpression) != 0 || Calculator.computed) == true) {
+            try {
                 System.out.println(inputExpression + " = " + Calculator.calculate(inputExpression));
-            } else {
-                System.out.println("Вы ввели некорректные данные");
+            } catch(IllegalArgumentException exception) {
+                System.out.println(exception.getMessage());
             }
 
             do {
@@ -26,7 +26,6 @@ class CalculatorTest {
                 answer = console.next();
             } while (!answer.equals("yes") && !answer.equals("no"));
             console.nextLine();
-
         } while (!answer.equals("no"));
     }
 }
