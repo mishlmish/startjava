@@ -13,18 +13,18 @@ class Calculator {
             try {
                 num1 = Integer.parseInt(splitedData[0]);
             } catch (IllegalArgumentException e) {
-                System.out.println("Первое число - вообше как-то неправильно введено");
+                System.out.println("Неправильно введено первое число");
             }
 
             try {
                 num2 = Integer.parseInt(splitedData[2]);
             } catch (IllegalArgumentException e) {
-                System.out.println("Второе число - неправильно введено как-то");
+                System.out.println("Неправильно введено второе число");
             }
 
             sign = splitedData[1].charAt(0);
         } else {
-            throw new NumberFormatException("Кто ж такой бред вводит! Не тот формат ввода, дружище)");
+            throw new NumberFormatException("Неправильный формат ввода");
         }
 
         if (num1 > 0 && num2 > 0) {
@@ -41,8 +41,8 @@ class Calculator {
                 }
             };
         } else {
-            throw new IllegalArgumentException("Эта или ошибка при вводе первого числа, или при вводе второго, или " +
-                    "вы ввели ноли или отрицательные числа, и Калькулятор считать это НЕ БУДЕТ потому, что НЕ СМОЖЕТ)");
+            throw new IllegalArgumentException("Ошибка при вводе первого числа, или при вводе второго числа, или " +
+                    "введены ноли или отрицательные числа");
         }
     }
 }
