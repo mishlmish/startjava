@@ -23,13 +23,12 @@ class Player {
         this.counter = numbersCounter;
     }
 
-
     public String getName() {
-
         return name;
     }
 
     public void setStatisticNumber(int currentNumber, int counter) {
+        System.arraycopy(statisticNumbers, 0, statisticNumbers, 0, counter + 1);
         statisticNumbers[counter] = currentNumber;
     }
 
@@ -47,4 +46,3 @@ class Player {
         }
     }
 }
-
