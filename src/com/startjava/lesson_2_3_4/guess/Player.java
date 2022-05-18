@@ -4,45 +4,41 @@ import java.util.Arrays;
 
 class Player {
     private String name;
-    private int[] statisticNumbers = new int[11];
+    private int[] numbers = new int[10];
     private int counter = 0;
 
-
     public Player(String name) {
-
         this.name = name;
-    }
-
-    public int getNumbersCounter()
-    {
-        return counter;
-    }
-
-    public void setStatisticNumbersCounter(int numbersCounter)
-    {
-        this.counter = numbersCounter;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setStatisticNumber(int currentNumber, int counter) {
-        System.arraycopy(statisticNumbers, 0, statisticNumbers, 0, counter + 1);
-        statisticNumbers[counter] = currentNumber;
+    public int[] getNumbers() {
+        return Arrays.copyOf(numbers, counter + 1);
+    }
+
+    public void setNumber(int currentNumber, int counter) {
+        numbers[counter] = currentNumber;
     }
 
     public int getCounter() {
         return counter;
     }
 
-    public void zeroStatisticNumbers(int fromNum, int toNum) {
-        Arrays.fill(statisticNumbers, fromNum, toNum, 0);
+    public void setCounter(int counter) {
+        this.counter = counter;
     }
 
-    public void printGapStatisticNumbers() {
-        for(int i = 0; i < counter; i++) {
-            System.out.print(" " + statisticNumbers[i]);
+    public void fillZeroNumbers(int fromNum, int toNum) {
+        Arrays.fill(numbers, fromNum, toNum, 0);
+    }
+
+    public void printGapNumbers() {
+
+        for (int i = 0; i < counter; i++) {
+            System.out.print(" " + numbers[i]);
         }
     }
 }

@@ -23,17 +23,17 @@ class GuessNumber {
 
         while (counter < 10) {
             currentPlayer = currentPlayer == player1 ? player2 : player1;
-            counter = currentPlayer.getNumbersCounter();
+            counter = currentPlayer.getCounter();
 
             if (counter != 10) {
                 System.out.println("\nИгрок " + currentPlayer.getName() + " введите число: ");
                 tempNumber = console.nextInt();
-                currentPlayer.setStatisticNumber(tempNumber, currentPlayer.getCounter());
-                currentPlayer.setStatisticNumbersCounter(counter + 1);
+                currentPlayer.setNumber(tempNumber, currentPlayer.getCounter());
+                currentPlayer.setCounter(counter + 1);
 
                 if (tempNumber == randomNumber) {
                     System.out.println("\nИгрок: " + currentPlayer.getName() + " угадал число " + tempNumber +
-                            " с " + (counter + 1) + " попытки");
+                            " с " + (counter + 1) + "-й попытки");
                     break;
                 }
 
@@ -46,7 +46,16 @@ class GuessNumber {
                 if (counter == 9) {
                     System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки");
                 }
+            } else {
+                break;
             }
         }
+
+        System.out.println("\nЧисла, которые вводили игроки: ");
+        System.out.println(player1.getName());
+        player1.printGapNumbers();
+
+        System.out.println("\n" + player2.getName());
+        player2.printGapNumbers();
     }
 }
