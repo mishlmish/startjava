@@ -5,7 +5,7 @@ import java.util.Arrays;
 class Player {
     private String name;
     private int[] numbers = new int[10];
-    private int counter = 0;
+    private int testNumber = 0;
 
     public Player(String name) {
         this.name = name;
@@ -16,29 +16,22 @@ class Player {
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, counter + 1);
+        return Arrays.copyOf(numbers, testNumber + 1);
     }
 
-    public void setNumber(int currentNumber, int counter) {
-        numbers[counter] = currentNumber;
+    public void addNumber(int currentNumber, int testNumber) {
+        numbers[testNumber] = currentNumber;
     }
 
-    public int getCounter() {
-        return counter;
+    public int getTestNumber() {
+        return testNumber;
     }
 
-    public void setCounter(int counter) {
-        this.counter = counter;
+    public void setTestNumber(int preTestNumber) {
+        this.testNumber = preTestNumber;
     }
 
-    public void fillZeroNumbers(int fromNum, int toNum) {
-        Arrays.fill(numbers, fromNum, toNum, 0);
-    }
-
-    public void printGapNumbers() {
-
-        for (int i = 0; i < counter; i++) {
-            System.out.print(" " + numbers[i]);
-        }
+    public void clearNumbers(int fromNum, int testNumber) {
+        Arrays.fill(numbers, fromNum, testNumber, 0);
     }
 }
