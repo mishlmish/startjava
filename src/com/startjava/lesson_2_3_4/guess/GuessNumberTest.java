@@ -17,13 +17,11 @@ class GuessNumberTest {
             System.out.println("У каждого игрока 10 попыток угадать число от 1 до 100");
 
             GuessNumber game = new GuessNumber(player1, player2);
-
             game.launch();
 
             do {
                 System.out.println("\nХотите играть ещё? [yes/no] : ");
                 answer = console.next();
-
             } while (!answer.equals("yes") && !answer.equals("no"));
             console.nextLine();
         } while (!answer.equals("no"));

@@ -10,7 +10,7 @@ class GuessNumber {
     private int count;
     private Random randomNum = new Random();
     private Scanner console = new Scanner(System.in);
-
+    private Player currentPlayer;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -18,9 +18,7 @@ class GuessNumber {
     }
 
     public void launch() {
-
         int randomNumber = randomNum.nextInt(toNum) + 1;
-        Player currentPlayer = player2;
         int currentNumber;
 
         player1.clearNumbers();
@@ -51,8 +49,6 @@ class GuessNumber {
                 if (count == 9) {
                     System.out.println("У игрока " + currentPlayer.getName() + " закончились попытки");
                 }
-            } else {
-                break;
             }
         }
 
