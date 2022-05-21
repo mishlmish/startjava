@@ -9,7 +9,7 @@ class GuessNumberTest {
         Player[] newcomerPlayers = new Player[3];
 
         do {
-            for (int i = 0; i < 3 ; i++) {
+            for (int i = 0; i < 3; i++) {
                 System.out.println("\nВведите имя " + (i + 1) + "-го игрока");
                 newcomerPlayers[i] = new Player(console.nextLine());
             }

@@ -8,6 +8,7 @@ class Player {
     private int count;
     private int winsNumber;
     private int winScore;
+
     public Player(String name) {
         this.name = name;
     }
@@ -23,7 +24,9 @@ class Player {
     public void addNumber(int currentNumber) throws IllegalArgumentException {
         if (currentNumber > 0 && currentNumber <= 100) {
             numbers[count] = currentNumber;
-        } else throw new IllegalArgumentException("Повторите ввод числа от 1 до 100");
+        } else {
+            throw new IllegalArgumentException("Повторите ввод числа от 1 до 100");
+        }
     }
 
     public int getCount() {

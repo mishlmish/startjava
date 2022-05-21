@@ -22,13 +22,15 @@ class GuessNumber {
 
         System.out.println("\nИгра состоит из трех раундов");
 
-        for (int round = 1; round < 4; round++){
+        for (int round = 1; round < 4; round++) {
             System.out.println("\n\nРаунд " + round);
             int randomNumber = randomNum.nextInt(toNum) + 1;
 
             shuffle();
             System.out.println("\nРезультаты жеребьевки: сначала угадывает " + players[0].getName() +
                     ", потом " + players[1].getName() + ", потом " + players[2].getName());
+
+            currentPlayer = players[2];
 
             for (int i = 0; i < 3; i++) {
                 players[i].clearNumbers();
@@ -76,7 +78,7 @@ class GuessNumber {
             for (int i = 0; i < 3; i++) {
                 printPlayerNumbers(players[i]);
             }
-            if (round == 3 ) {
+            if (round == 3) {
                 chooseTheWinner();
             }
         }
@@ -90,10 +92,10 @@ class GuessNumber {
     }
 
     private void shuffle() {
-        int tripleOutcomes[][] = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}};
+        int tripleSets[][] = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}};
         int randomNumber = randomNum.nextInt(5);
         for (int i = 0; i < 3; i++) {
-            players[i] = newcomerPlayers[tripleOutcomes[randomNumber][i]];
+            players[i] = newcomerPlayers[tripleSets[randomNumber][i]];
         }
     }
 
@@ -121,7 +123,7 @@ class GuessNumber {
             }
         }
 
-        System.out.println("\nПо результатам трех раундов в игре побеждает: "  + winnerNames[0] + " " + winnerNames[1] +
-                " " + winnerNames[2] +"!!!");
+        System.out.println("\n\nПо результатам трех раундов в игре побеждает: " + winnerNames[0] + " " + winnerNames[1] +
+                " " + winnerNames[2] + "!!!");
     }
 }
