@@ -6,7 +6,7 @@ class Player {
     private String name;
     private int[] numbers = new int[10];
     private int count;
-    private int winsNumber;
+    private int numberWins;
     private int winScore;
 
     public Player(String name) {
@@ -21,11 +21,12 @@ class Player {
         return Arrays.copyOf(numbers, count);
     }
 
-    public void addNumber(int currentNumber) throws IllegalArgumentException {
+    public void addNumber(int currentNumber) throws Exception {
         if (currentNumber > 0 && currentNumber <= 100) {
             numbers[count] = currentNumber;
+            count++;
         } else {
-            throw new IllegalArgumentException("Повторите ввод числа от 1 до 100");
+            throw new Exception("Введите число от 1 до 100");
         }
     }
 
@@ -33,16 +34,12 @@ class Player {
         return count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     public int getWinsNumber() {
-        return winsNumber;
+        return numberWins;
     }
 
     public void incrementWinsNumber() {
-        winsNumber += 1;
+        numberWins++;
     }
 
     public int getWinScore() {

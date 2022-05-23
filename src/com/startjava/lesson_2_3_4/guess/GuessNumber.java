@@ -5,56 +5,54 @@ import java.util.Scanner;
 import java.util.Random;
 
 class GuessNumber {
-    private int toNum = 100;
-    private Player[] newcomerPlayers;
     private int count;
     private Random randomNum = new Random();
-    private Scanner console = new Scanner(System.in);
     private Player currentPlayer;
     private Player[] players = new Player[3];
 
-    public GuessNumber(Player[] newcomerPlayers) {
-        this.newcomerPlayers = Arrays.copyOf(newcomerPlayers, 3);
+    public GuessNumber(Player[] players) {
+        this.players = Arrays.copyOf(players, players.length);
     }
 
     public void launch() {
         int currentNumber;
 
         System.out.println("\nИгра состоит из трех раундов");
+        System.out.println("У игроков есть по 10 попыток в каждом раунде угадать число от 1 до 100");
 
         for (int round = 1; round < 4; round++) {
             System.out.println("\n\nРаунд " + round);
+            int toNum = 100;
             int randomNumber = randomNum.nextInt(toNum) + 1;
 
             shuffle();
             System.out.println("\nРезультаты жеребьевки: сначала угадывает " + players[0].getName() +
                     ", потом " + players[1].getName() + ", потом " + players[2].getName());
 
-            currentPlayer = players[2];
-
             for (int i = 0; i < 3; i++) {
                 players[i].clearNumbers();
             }
 
-            while (count < 10) {
-                currentPlayer = currentPlayer == players[0] ? players[1] :
-                        currentPlayer == players[1] ? players[2] : players[0];
+            count = 0;
+            int PlayersOrder = 0;
 
+            while (count < 10) {
+                currentPlayer = players[PlayersOrder++ % 3];
                 count = currentPlayer.getCount();
 
                 if (count != 10) {
                     do {
                         try {
                             System.out.println("\nИгрок " + currentPlayer.getName() + " введите число: ");
+                            Scanner console = new Scanner(System.in);
+
                             currentNumber = console.nextInt();
                             currentPlayer.addNumber(currentNumber);
                             break;
-                        } catch (IllegalArgumentException e) {
-                            System.out.println(e.getMessage());
+                        } catch (Exception e) {
+                            System.out.println("\"Введите число от 1 до 100\"");
                         }
                     } while (true);
-
-                    currentPlayer.setCount(count + 1);
 
                     if (currentNumber == randomNumber) {
                         System.out.println("\nВ " + round + "-м раунде игрок: " + currentPlayer.getName() +
@@ -74,32 +72,36 @@ class GuessNumber {
                 }
             }
 
-            System.out.println("\nЧисла, которые вводили игроки в " + round + "-м раунде: ");
-            for (int i = 0; i < 3; i++) {
-                printPlayerNumbers(players[i]);
-            }
-            if (round == 3) {
-                chooseTheWinner();
-            }
-        }
-    }
+            printPlayersNumbers(players, round);
 
-    private void printPlayerNumbers(Player player) {
-        System.out.println("\n" + player.getName());
-        for (int i = 0; i < player.getCount(); i++) {
-            System.out.print(" " + player.getNumbers()[i]);
+            if (round == 3) {
+                chooseWinner();
+            }
         }
     }
 
     private void shuffle() {
         int tripleSets[][] = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}};
         int randomNumber = randomNum.nextInt(5);
+        Player[] draftPlayers = new Player[3];
         for (int i = 0; i < 3; i++) {
-            players[i] = newcomerPlayers[tripleSets[randomNumber][i]];
+            draftPlayers[i] = players[tripleSets[randomNumber][i]];
+        }
+        players = draftPlayers;
+    }
+
+    private void printPlayersNumbers(Player[] players, int round) {
+        System.out.println("\nЧисла, которые вводили игроки в " + round + "-м раунде: ");
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("\n" + players[i].getName());
+            for (int j = 0; j < players[i].getCount(); j++) {
+                System.out.print(" " + players[i].getNumbers()[j]);
+            }
         }
     }
 
-    private void chooseTheWinner() {
+    private void chooseWinner() {
         int maxScore = players[0].getWinScore();
         String[] winnerNames = {"", "", ""};
 
