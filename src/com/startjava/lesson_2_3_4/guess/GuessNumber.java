@@ -1,6 +1,7 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -29,15 +30,15 @@ class GuessNumber {
             System.out.println("\nРезультаты жеребьевки: сначала угадывает " + players[0].getName() +
                     ", потом " + players[1].getName() + ", потом " + players[2].getName());
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < players.length; i++) {
                 players[i].clearNumbers();
             }
 
             count = 0;
-            int PlayersOrder = 0;
+            int playersOrder = 0;
 
             while (count < 10) {
-                currentPlayer = players[PlayersOrder++ % 3];
+                currentPlayer = players[playersOrder++ % 3];
                 count = currentPlayer.getCount();
 
                 if (count != 10) {
@@ -49,7 +50,7 @@ class GuessNumber {
                             currentNumber = console.nextInt();
                             currentPlayer.addNumber(currentNumber);
                             break;
-                        } catch (Exception e) {
+                        } catch (InputMismatchException e) {
                             System.out.println("\"Введите число от 1 до 100\"");
                         }
                     } while (true);
@@ -72,7 +73,7 @@ class GuessNumber {
                 }
             }
 
-            printPlayersNumbers(players, round);
+            printPlayersNumbers(round);
 
             if (round == 3) {
                 chooseWinner();
@@ -84,16 +85,16 @@ class GuessNumber {
         int tripleSets[][] = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}};
         int randomNumber = randomNum.nextInt(5);
         Player[] draftPlayers = new Player[3];
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < draftPlayers.length; i++) {
             draftPlayers[i] = players[tripleSets[randomNumber][i]];
         }
         players = draftPlayers;
     }
 
-    private void printPlayersNumbers(Player[] players, int round) {
+    private void printPlayersNumbers(int round) {
         System.out.println("\nЧисла, которые вводили игроки в " + round + "-м раунде: ");
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < players.length; i++) {
             System.out.println("\n" + players[i].getName());
             for (int j = 0; j < players[i].getCount(); j++) {
                 System.out.print(" " + players[i].getNumbers()[j]);
@@ -105,20 +106,20 @@ class GuessNumber {
         int maxScore = players[0].getWinScore();
         String[] winnerNames = {"", "", ""};
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < players.length; i++) {
             if (players[i].getWinsNumber() > 1) {
                 winnerNames[0] = players[i].getName();
             }
         }
 
         if (winnerNames[0].equals("")) {
-            for (int i = 1; i < 3; i++) {
+            for (int i = 1; i < players.length; i++) {
                 if (players[i].getWinScore() > maxScore) {
                     maxScore = players[i].getWinScore();
                 }
             }
 
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < winnerNames.length; i++) {
                 if (players[i].getWinScore() == maxScore) {
                     winnerNames[i] = players[i].getName();
                 }

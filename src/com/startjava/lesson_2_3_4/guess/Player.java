@@ -1,6 +1,7 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 
 class Player {
     private String name;
@@ -21,12 +22,12 @@ class Player {
         return Arrays.copyOf(numbers, count);
     }
 
-    public void addNumber(int currentNumber) throws Exception {
+    public void addNumber(int currentNumber) throws InputMismatchException {
         if (currentNumber > 0 && currentNumber <= 100) {
             numbers[count] = currentNumber;
             count++;
         } else {
-            throw new Exception("Введите число от 1 до 100");
+            throw new InputMismatchException("Введите число от 1 до 100");
         }
     }
 
